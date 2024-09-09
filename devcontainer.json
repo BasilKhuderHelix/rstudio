@@ -1,5 +1,5 @@
 {
-  "name": "Rstudio app",
+  "name": "Tidyverse Dev",
   "dockerComposeFile": "docker-compose.yaml",
   "service": "app",
   "shutdownAction": "none",
@@ -11,7 +11,6 @@
     "${templateOption:cloud}",
     "${templateOption:login}"
   ],
-  // re-mount bucket files on container start up
   "postStartCommand": [
     "./startupscript/remount-on-restart.sh",
     "rstudio",
@@ -21,7 +20,7 @@
   ],
   "features": {
     "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
-      "packages": "shiny,shinydashboard",
+      "packages": "tidyverse,devtools",
       "installSystemRequirements": true
     },
     "ghcr.io/devcontainers/features/aws-cli:1": {},
